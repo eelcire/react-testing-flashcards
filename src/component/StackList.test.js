@@ -1,7 +1,10 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import { shallow, configure } from 'enzyme';
 import { StackList } from './StackList';
 import { stacks } from '../data/fixtures';
+
+configure({ adapter: new Adapter() });
 
 const props = { stacks };
 

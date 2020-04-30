@@ -1,8 +1,11 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import { shallow, configure } from 'enzyme';
 import { StackForm } from './StackForm';
 
-const changeTitle = changeTitle;
+configure({ adapter: new Adapter() });
+
+const changeTitle = 'change title';
 const changePrompt = 'change prompt';
 const changeAnswer = 'change answer';
 
@@ -26,7 +29,7 @@ describe('StackForm', () => {
   });
 
   it('renders a button to submit the form', () => {
-    expet(stackForm.find('Button').at(1).props().children).toEqual(
+    expect(stackForm.find('Button').at(1).props().children).toEqual(
       'Save and Add the Stack'
     );
   });
